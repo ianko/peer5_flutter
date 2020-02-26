@@ -1,5 +1,5 @@
 name: peer5
-description: Peer5 integration for Flutter.
+description: Flutter plugin to integrate with the Peer5 native SDKs on Android and iOS.
 version: 1.0.0
 homepage: https://peer5.com
 repository: https://github.com/ianko/peer5_flutter
