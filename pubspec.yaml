@@ -1,7 +1,6 @@
 name: peer5
 description: Peer5 integration for Flutter.
 version: 1.0.0
-author: Ianko Leite
 homepage: https://peer5.com
 
 environment:

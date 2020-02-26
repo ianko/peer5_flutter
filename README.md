@@ -1,3 +1,5 @@
+![Pub Version](https://img.shields.io/pub/v/peer5?style=for-the-badge)
+
 # Peer5 Flutter
 
 Flutter plugin to integrate with the Peer5 native SDKs on Android and iOS.
@@ -22,7 +24,7 @@ Don't forget to run `pod install` inside the `ios/` directory.
 
 Add your `CustomerID` and, in order to allow the loading of distributed content via the Peer5 proxy, enable loading data from HTTP in your app by opening your `Info.plist` file as source code and adding the following values below the `</dict>` tag:
 
-```plist
+```xml
 <key>Peer5ApiKey</key>
 <string>Your-CustomerID-Goes-Here</string>
 <key>NSAppTransportSecurity</key>
@@ -156,7 +158,9 @@ class _MyAppState extends State<MyApp> {
 *That’s all that’s needed for you to get started!*
 
 For more information, read the official documentation:
+
 (iOS) https://docs.peer5.com/platforms/ios/
+
 (Android) https://docs.peer5.com/platforms/android/
 
 ## Contributing
