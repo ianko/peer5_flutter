@@ -19,12 +19,18 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _initPeer5();
+    _controller.addListener(_onTextChange);
   }
 
   @override
   void dispose() {
     super.dispose();
+    _controller.removeListener(_onTextChange);
     _controller.dispose();
+  }
+
+  void _onTextChange() {
+    setState(() {});
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

@@ -1,6 +1,7 @@
 package dev.ianko.peer5
 
-import androidx.annotation.NonNull;
+import androidx.annotation.NonNull
+import com.peer5.sdk.Peer5Sdk
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -33,8 +34,9 @@ public class Peer5Plugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "streamUrl") {
+      val peer5Url: String = Peer5Sdk.getPeer5StreamUrl(call.argument("url"))
+      result.success(peer5Url)
     } else {
       result.notImplemented()
     }

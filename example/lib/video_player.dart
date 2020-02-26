@@ -23,7 +23,6 @@ class _VideoPlayerDemoState extends State<VideoPlayerDemo> {
     _controller = VideoPlayerController.network(widget.url);
 
     _controller.addListener(() {
-      print(_controller.value);
       setState(() {});
     });
 

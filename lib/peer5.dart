@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/services.dart';
 
 /// Peer5 operates as a service that orchestrates peers and provides analytics
@@ -16,8 +17,13 @@ class Peer5 {
   static bool get initialized => _initialized;
   static bool _initialized = false;
 
-  /// Initialize the Peer5 local server.
+  /// `iOS` Only. Initialize the Peer5 local server.
   static Future<void> initWithToken(String token) async {
+    if (Platform.isAndroid) {
+      _initialized = true;
+      return;
+    }
+
     if (initialized) {
       throw 'Peer5 already initialized';
     }
@@ -30,7 +36,7 @@ class Peer5 {
   /// Get a proxied `url` through Peer5 in exchange for the `originalUrl`.
   /// You will use this `url` to your player.
   static Future<String> getStreamUrl(String originalUrl) async {
-    if (!initialized) {
+    if (Platform.isIOS && !initialized) {
       throw 'Peer5 needs to be initialized first.';
     }
 
