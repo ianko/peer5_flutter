@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> _initPeer5() async {
-    await Peer5.initWithToken('__YOUR_PEER5_TOKEN__');
+    await Peer5.init();
     print('Peer5 initialized: ${Peer5.initialized}');
   }
 

@@ -18,22 +18,52 @@ public class SwiftPeer5Plugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "init":
-      let token: String? = (call.arguments as? [String: Any])?["token"] as? String
-      sdk = Peer5Sdk.init(token: token!)
-      result(nil)
+      result(initialize())
     case "streamUrl":
-      let urlString: String? = (call.arguments as? [String: Any])?["url"] as? String
-
-      guard let unwrappedURLString = urlString,
-        let url = URL.init(string: unwrappedURLString)
-      else {
-        result(invalidURLError(urlString))
-        return
-      }
-      result(sdk?.streamURL(forURL: url).absoluteString)
+      let url: String? = (call.arguments as? [String: Any])?["url"] as? String
+      result(streamURL(url))
     default:
       result(FlutterMethodNotImplemented)
     }
+  }
+
+  private func initialize() -> Any? {
+    /// sdk was already initialized
+    if (sdk != nil) {
+      return nil
+    }
+
+    /// get the token from the Info.plist
+    let token = Bundle.main.object(forInfoDictionaryKey: "Peer5ApiKey") as? String
+
+    if (token == nil) {
+      return FlutterError(
+        code: "argument_error",
+        message: "Peer5ApiKey not found in the Info.plist",
+        details: "Please refer to the Flutter Peer5 plugin documentation on how to add the Peer5ApiKey to your app's Info.plist")
+    }
+
+    /// init the local server
+    sdk = Peer5Sdk.init(token: token!)
+    return nil
+  }
+
+  private func streamURL(_ urlString: String?) -> Any? {
+    if (sdk == nil) {
+      return FlutterError(
+        code: "initialization_error",
+        message: "Peer5 server was not initialized",
+        details: "You need to call Peer5.init() before calling the getStreamUrl() function.")
+    }
+
+    guard let unwrappedURLString = urlString,
+      let url = URL.init(string: unwrappedURLString)
+    else {
+      return invalidURLError(urlString)
+    }
+
+    let streamURL = sdk?.streamURL(forURL: url)
+    return streamURL?.absoluteString
   }
 }
 
