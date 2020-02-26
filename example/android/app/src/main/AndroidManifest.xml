@@ -30,6 +30,6 @@
 
         <meta-data
             android:name="com.peer5.ApiKey"
-            android:value="__YOUR_PEER5_TOKEN__" />
+            android:value="Your-CustomerID-Goes-Here" />
     </application>
 </manifest>

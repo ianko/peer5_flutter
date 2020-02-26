@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:peer5/peer5.dart';
 import 'package:peer5_example/video_player.dart';
 
@@ -53,7 +53,6 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: const Text('Video Player')),
         body: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 300.0,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

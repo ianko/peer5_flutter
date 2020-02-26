@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Implemented the `Peer5.init()` and `Peer5.getStreamUrl()` methods on both iOS and Android.

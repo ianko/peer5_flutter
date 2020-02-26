@@ -28,7 +28,7 @@
 		<true/>
 	</dict>
 	<key>Peer5ApiKey</key>
-	<string>__YOUR_PEER5_TOKEN__</string>
+	<string>Your-CustomerID-Goes-Here</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
