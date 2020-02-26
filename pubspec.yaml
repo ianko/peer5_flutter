@@ -1,0 +1,17 @@
+name: peer5
+description: Peer5 integration for Flutter.
+version: 0.0.1
+author: Ianko Leite
+homepage: https://peer5.com
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  plugin:
+    androidPackage: dev.ianko.peer5
+    pluginClass: Peer5Plugin
