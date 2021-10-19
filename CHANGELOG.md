@@ -1,3 +1,7 @@
+## 2.0.0-dev.1
+
+* Null-safety.
+
 ## 1.0.0+1
 
 * Improved `pubspec.yaml` parameters.
