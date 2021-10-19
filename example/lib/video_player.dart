@@ -4,23 +4,23 @@ import 'package:video_player/video_player.dart';
 /// Demo video player.
 class VideoPlayerDemo extends StatefulWidget {
   /// constructor
-  const VideoPlayerDemo({Key key, @required this.url}) : super(key: key);
+  const VideoPlayerDemo({Key? key, required this.url}) : super(key: key);
 
   /// the video url
-  final String url;
+  final String? url;
 
   @override
   _VideoPlayerDemoState createState() => _VideoPlayerDemoState();
 }
 
 class _VideoPlayerDemoState extends State<VideoPlayerDemo> {
-  VideoPlayerController _controller;
+  late final VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
     print('Attempting to play: ${widget.url}');
-    _controller = VideoPlayerController.network(widget.url);
+    _controller = VideoPlayerController.network(widget.url!);
 
     _controller.addListener(() {
       setState(() {});
@@ -57,7 +57,7 @@ class _VideoPlayerDemoState extends State<VideoPlayerDemo> {
 }
 
 class _PlayPauseOverlay extends StatelessWidget {
-  const _PlayPauseOverlay({Key key, this.controller}) : super(key: key);
+  const _PlayPauseOverlay({Key? key, required this.controller}) : super(key: key);
 
   final VideoPlayerController controller;
 

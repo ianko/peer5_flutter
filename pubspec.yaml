@@ -6,7 +6,7 @@ repository: https://github.com/ianko/peer5_flutter
 issue_tracker: https://github.com/ianko/peer5_flutter/issues
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
