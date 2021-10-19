@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _controller = TextEditingController(text: '');
-  String _streamUrl;
+  String? _streamUrl;
 
   @override
   void initState() {
@@ -85,16 +85,17 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: _controller.text.isEmpty ? null : _getStreamUrl,
                 child: const Text('PLAY VIDEO'),
-                color: Theme.of(context).primaryColor,
-                textColor: Colors.white,
-                elevation: 30.0,
+                style: ElevatedButton.styleFrom(
+                  elevation: 30.0,
+                  textStyle: TextStyle(color: Colors.white),
+                  primary: Theme.of(context).primaryColor,
+                ),
               ),
-              Divider(),
-              if (_streamUrl != null)
-                Expanded(child: VideoPlayerDemo(url: _streamUrl)),
+              const Divider(),
+              if (_streamUrl != null) Expanded(child: VideoPlayerDemo(url: _streamUrl)),
             ],
           ),
         ),

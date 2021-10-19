@@ -35,7 +35,7 @@ class Peer5 {
 
   /// Get a proxied `url` through Peer5 in exchange for the `originalUrl`.
   /// You will use this `url` to your player.
-  static Future<String> getStreamUrl(String originalUrl) async {
+  static Future<String?> getStreamUrl(String originalUrl) async {
     if (Platform.isIOS && !initialized) {
       throw 'Peer5 needs to be initialized first.';
     }
