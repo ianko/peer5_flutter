@@ -90,7 +90,8 @@ class _MyAppState extends State<MyApp> {
                 child: const Text('PLAY VIDEO'),
                 style: ElevatedButton.styleFrom(
                   elevation: 30.0,
-                  textStyle: TextStyle(color: Colors.white, backgroundColor: Theme.of(context).primaryColor),
+                  textStyle: TextStyle(color: Colors.white),
+                  primary: Theme.of(context).primaryColor,
                 ),
               ),
               const Divider(),
